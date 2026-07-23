@@ -1,4 +1,5 @@
 import { Container } from "@/components/container";
+import { Reveal } from "@/components/reveal";
 
 const services = [
   {
@@ -79,23 +80,23 @@ export function Services() {
   return (
     <section id="services" className="scroll-mt-16 py-24">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <h2 className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             What we do
           </h2>
           <p className="mt-4 text-lg text-secondary">
             End-to-end web design and development, tailored to how your
             business actually works.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Reveal stagger className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <div
               key={service.title}
-              className="rounded-2xl border border-border bg-card p-6 transition-shadow hover:shadow-md"
+              className="group rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-glow"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 text-accent">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[image:var(--gradient-accent)] text-on-accent opacity-90 transition-opacity group-hover:opacity-100">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
                   {service.icon}
                 </svg>
@@ -108,7 +109,7 @@ export function Services() {
               </p>
             </div>
           ))}
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

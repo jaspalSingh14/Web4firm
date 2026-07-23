@@ -1,4 +1,5 @@
 import { Container } from "@/components/container";
+import { Reveal } from "@/components/reveal";
 
 const placeholders = [
   {
@@ -22,17 +23,17 @@ export function Testimonials() {
   return (
     <section id="testimonials" className="scroll-mt-16 bg-card py-24">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <h2 className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             What clients say
           </h2>
           <p className="mt-4 text-lg text-secondary">
             Placeholder quotes below — swap in real client testimonials before
             launch.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <Reveal stagger className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
           {placeholders.map((item, i) => (
             <figure
               key={i}
@@ -47,7 +48,7 @@ export function Testimonials() {
               </figcaption>
             </figure>
           ))}
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

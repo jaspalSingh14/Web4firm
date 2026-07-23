@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { Container } from "@/components/container";
+import { Reveal } from "@/components/reveal";
 
 export function Contact() {
   const [status, setStatus] = useState<"idle" | "submitted">("idle");
@@ -15,18 +16,18 @@ export function Contact() {
   return (
     <section id="contact" className="scroll-mt-16 py-24">
       <Container className="max-w-2xl">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+        <Reveal className="text-center">
+          <h2 className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             Let&apos;s talk about your project
           </h2>
           <p className="mt-4 text-lg text-secondary">
             Fill out the form and we&apos;ll get back to you within one
             business day.
           </p>
-        </div>
+        </Reveal>
 
         {status === "submitted" ? (
-          <div className="mt-10 rounded-2xl border border-border bg-card p-8 text-center">
+          <div className="mt-10 rounded-2xl border border-border bg-card p-8 text-center shadow-glow">
             <p className="text-lg font-semibold text-primary">Thanks — got it!</p>
             <p className="mt-2 text-sm text-secondary">
               We&apos;ll be in touch shortly.
@@ -44,7 +45,7 @@ export function Contact() {
                   name="name"
                   type="text"
                   required
-                  className="mt-1.5 block w-full rounded-lg border border-border bg-card px-3.5 py-2.5 text-sm text-foreground outline-none ring-ring focus:ring-2"
+                  className="mt-1.5 block w-full rounded-lg border border-border bg-card px-3.5 py-2.5 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring"
                 />
               </div>
               <div>
@@ -56,7 +57,7 @@ export function Contact() {
                   name="email"
                   type="email"
                   required
-                  className="mt-1.5 block w-full rounded-lg border border-border bg-card px-3.5 py-2.5 text-sm text-foreground outline-none ring-ring focus:ring-2"
+                  className="mt-1.5 block w-full rounded-lg border border-border bg-card px-3.5 py-2.5 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring"
                 />
               </div>
             </div>
@@ -70,13 +71,13 @@ export function Contact() {
                 name="message"
                 rows={5}
                 required
-                className="mt-1.5 block w-full rounded-lg border border-border bg-card px-3.5 py-2.5 text-sm text-foreground outline-none ring-ring focus:ring-2"
+                className="mt-1.5 block w-full rounded-lg border border-border bg-card px-3.5 py-2.5 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring"
               />
             </div>
 
             <button
               type="submit"
-              className="inline-flex h-12 w-full items-center justify-center rounded-full bg-primary px-8 text-sm font-semibold text-on-primary transition-colors hover:bg-accent cursor-pointer sm:w-auto"
+              className="inline-flex h-12 w-full cursor-pointer items-center justify-center rounded-full bg-[image:var(--gradient-accent)] px-8 text-sm font-semibold text-on-accent shadow-glow transition-transform hover:scale-[1.01] sm:w-auto"
             >
               Send Message
             </button>

@@ -2,19 +2,71 @@
 
 :root {
   --background: #f8fafc;
-  --foreground: #020617;
+  --foreground: #0b1120;
   --card: #ffffff;
-  --card-foreground: #020617;
-  --primary: #0f172a;
+  --card-foreground: #0b1120;
+  --primary: #0b1120;
   --on-primary: #ffffff;
-  --secondary: #334155;
-  --accent: #0369a1;
+  --secondary: #475569;
+  --accent: #4f46e5;
+  --accent-from: #4f46e5;
+  --accent-to: #7c3aed;
   --on-accent: #ffffff;
-  --muted: #e8ecf1;
+  --muted: #eef1f6;
   --muted-foreground: #64748b;
   --border: #e2e8f0;
-  --destructive: #dc2626;
-  --ring: #0f172a;
+  --ring: #4f46e5;
+  --glow: rgba(79, 70, 229, 0.16);
+  --footer-bg: #0b1120;
+  --footer-fg: #ffffff;
+  --footer-muted: rgba(255, 255, 255, 0.66);
+  --gradient-accent: linear-gradient(135deg, var(--accent-from), var(--accent-to));
+}
+
+:root[data-theme="dark"] {
+  --background: #05060b;
+  --foreground: #f1f5f9;
+  --card: #0d1120;
+  --card-foreground: #f1f5f9;
+  --primary: #f1f5f9;
+  --on-primary: #05060b;
+  --secondary: #94a3b8;
+  --accent: #818cf8;
+  --accent-from: #6366f1;
+  --accent-to: #a855f7;
+  --on-accent: #05060b;
+  --muted: #10141f;
+  --muted-foreground: #8b98ab;
+  --border: #1e2536;
+  --ring: #818cf8;
+  --glow: rgba(129, 140, 248, 0.28);
+  --footer-bg: #030307;
+  --footer-fg: #f1f5f9;
+  --footer-muted: rgba(241, 245, 249, 0.6);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --background: #05060b;
+    --foreground: #f1f5f9;
+    --card: #0d1120;
+    --card-foreground: #f1f5f9;
+    --primary: #f1f5f9;
+    --on-primary: #05060b;
+    --secondary: #94a3b8;
+    --accent: #818cf8;
+    --accent-from: #6366f1;
+    --accent-to: #a855f7;
+    --on-accent: #05060b;
+    --muted: #10141f;
+    --muted-foreground: #8b98ab;
+    --border: #1e2536;
+    --ring: #818cf8;
+    --glow: rgba(129, 140, 248, 0.28);
+    --footer-bg: #030307;
+    --footer-fg: #f1f5f9;
+    --footer-muted: rgba(241, 245, 249, 0.6);
+  }
 }
 
 @theme inline {
@@ -30,8 +82,9 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
-  --color-destructive: var(--destructive);
   --color-ring: var(--ring);
+  --color-footer: var(--footer-bg);
+  --color-footer-fg: var(--footer-fg);
   --font-sans: var(--font-plus-jakarta-sans);
 }
 
@@ -39,6 +92,25 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+.footer-muted {
+  color: var(--footer-muted);
+}
+
+.bg-gradient-accent {
+  background-image: var(--gradient-accent);
+}
+
+.text-gradient-accent {
+  background-image: var(--gradient-accent);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.shadow-glow {
+  box-shadow: 0 12px 40px -12px var(--glow);
 }
 
 @media (prefers-reduced-motion: reduce) {
